@@ -47,6 +47,13 @@ jQuery(function(jq) {
       return false;
       });
 
+  // remove an already existing reference
+  jq('input.destructive', jq('body')[0]).live('click', function(event) {
+      var wrap = jq(this).parent().parent();
+      target = wrap.find('input[id^=ref_browser_]');
+      target.attr("value", "");
+  });
+
   // the links for inserting referencens
   jq('[id^=atrb_] input.insertreference', jq('body')[0]).live('click', function(event) {
       var target = jq(this);
