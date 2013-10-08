@@ -109,6 +109,18 @@ jQuery(function(jq) {
       return false;
       });
 
+  // reference sorting, move up
+  jq('.move-up', jq('body')[0]).live('click', function(event){
+      event.preventDefault();
+      refbrowser_moveReferenceUp(this);
+  });
+
+  // reference sorting, move down
+  jq('.move-down', jq('body')[0]).live('click', function(event){
+      event.preventDefault();
+      refbrowser_moveReferenceDown(this);
+  });
+
 
 
   function do_atref_search(event) {
@@ -216,10 +228,7 @@ jQuery(function(jq) {
             up_element.title = 'Move Up';
             up_element.href = '';
             up_element.innerHTML = '&#x25b2;';
-            up_element.onclick = function () {
-                refbrowser_moveReferenceUp(this);
-                return false;
-            };
+            up_element.className = 'move-up';
 
             li.appendChild(up_element);
 
@@ -227,10 +236,7 @@ jQuery(function(jq) {
             down_element.title = 'Move Down';
             down_element.href = '';
             down_element.innerHTML = '&#x25bc;';
-            down_element.onclick = function () {
-                refbrowser_moveReferenceDown(this);
-                return false;
-            };
+            down_element.className = 'move-down';
 
             li.appendChild(down_element);
           }
@@ -304,15 +310,9 @@ jQuery(function(jq) {
 
       // up arrow
       arrows = newelem.getElementsByTagName("a");
-      arrows[0].onclick = function () {
-          refbrowser_moveReferenceUp(this);
-          return false;
-      };
+      arrows[0].className = 'move-up';
       // down arrow
-      arrows[1].onclick = function () {
-          refbrowser_moveReferenceDown(this);
-          return false;
-      };
+      arrows[0].className = 'move-down';
 
       elem.parentNode.insertBefore(newelem, prevelem);
       elem.parentNode.removeChild(elem);

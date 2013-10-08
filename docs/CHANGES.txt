@@ -8,7 +8,10 @@ Changelog
   reference_catalog has links from a source to a no longer existing
   target.
   [maurits]
-
+- Javascript click events for removing and moving reference items is now
+  handled using jquery live event handler. This fixes the broken onclick
+  attributes for removing and moving reference items.
+  [kcleong]
 
 2.4.19 (2013-08-13)
 -------------------
