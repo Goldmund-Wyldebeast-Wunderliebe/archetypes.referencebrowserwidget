@@ -312,7 +312,7 @@ jQuery(function(jq) {
       arrows = newelem.getElementsByTagName("a");
       arrows[0].className = 'move-up';
       // down arrow
-      arrows[0].className = 'move-down';
+      arrows[1].className = 'move-down';
 
       elem.parentNode.insertBefore(newelem, prevelem);
       elem.parentNode.removeChild(elem);
